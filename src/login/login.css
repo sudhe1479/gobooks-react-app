@@ -1,0 +1,84 @@
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.left-side-section{
+    width:50%;
+    height:100vh;
+    background: linear-gradient(#0162DD, #02298A,#021B79);
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    flex-direction: column;
+}
+
+.right-side-section{
+    width:50%;
+    height:100vh;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+}
+
+.logo{
+    height: auto;
+}
+
+.loginSection{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 307px;
+}
+.headerSec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.helloTexrt{
+    font-size: 26px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.welcomeText{
+    color: #333333;
+    font-size: 18px;
+}
+
+.loginInputsSection{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fogotPasswordText{
+    font-size: 16px;
+    font-weight:100;
+    color: #333333;
+}
+
+.fogotPasswordSec{
+    display: flex;
+    justify-content: center;
+}
+
+.signInBtn{
+    width: 100%;
+}
+
+.goBooksText{
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.publishText{
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 100;
+}
