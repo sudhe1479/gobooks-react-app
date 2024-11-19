@@ -1,8 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from './login/login'
+import Login from './login/login';
+import {loginComponentProps} from './login/login';
+import SignUp from './signup/signup';
+import {AppProvider} from './context/App.context'
 function App() {
+  const loginData:loginComponentProps ={
+    name:"test",
+    maineMail:"test@gmail.com",
+    mobileNumber:34543543543,
+    testData:{
+      sudent:"",
+
+    }
+  }
   return (
     // <div className="App">
     //   <header className="App-header">
@@ -20,7 +32,10 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <Login></Login>
+    <AppProvider>
+    <Login {...loginData}></Login>
+    <SignUp></SignUp>
+    </AppProvider>
   );
 }
 

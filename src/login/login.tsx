@@ -2,15 +2,49 @@
 
 import './login.css'
 import logo from './logo.svg'
-import { Input, Button, Alert } from 'antd';
+import { Input, Button, Alert, Modal } from 'antd';
 import { MailOutlined, LockOutlined, GoogleOutlined } from '@ant-design/icons';
-import { useState } from 'react';
-
-function Login() {
+import { useState,useEffect, useContext } from 'react';
+import { AppContext } from '../context/App.context';
+export type loginComponentProps = {
+    name?:string,
+    maineMail?:string,
+    mobileNumber?:number
+    testData?:{
+        sudent?:string
+    }
+}
+function Login({name,maineMail,mobileNumber}:loginComponentProps) {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    //const [varName, setVarName]=useState<type>(initialValue)
     const [email, setEmail] = useState<string>("")//state variable
     const [password, setPassword] = useState<string>("")//state variable
     const [error, setError] = useState<string>("")
+    const [isModalOpen, setIsModalOpen] = useState(false);
+     // const {value} = useContext(contextName)
+    const {setIsUserLogin} =useContext(AppContext)
+
+  
+ 
+
+
+//only if dependeces are empty then it will call one time 
+useEffect(()=>{
+    setIsModalOpen(true)
+    console.log(name)
+    console.log(maineMail)
+    console.log(mobileNumber)
+   
+},[])
+
+const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
 
     const handleEmailChange = (event: any) => {
         setEmail(event.target.value)
@@ -25,6 +59,7 @@ function Login() {
         if (emailRegex.test(email)) {
             if (password.length === 10) {
                 setError("")
+                setIsUserLogin(true)
                 //logic
             } else {
                 setError("Please enter a password minimum 10 characters ")
@@ -65,6 +100,10 @@ function Login() {
                     </div>
                 </div>
             </div>
+            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>Please Login to continue to dashboard</p>
+       
+      </Modal>
         </div>
     )
 
