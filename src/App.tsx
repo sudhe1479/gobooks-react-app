@@ -1,10 +1,13 @@
 import React from 'react';
+import {BrowserRouter,Routes, Route} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import Login from './login/login';
 import {loginComponentProps} from './login/login';
 import SignUp from './signup/signup';
 import {AppProvider} from './context/App.context'
+import { CounterComponent } from './counter/counter';
+import { Dashboard} from './dashboard/dashboard'
 function App() {
   const loginData:loginComponentProps ={
     name:"test",
@@ -32,10 +35,20 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <AppProvider>
-    <Login {...loginData}></Login>
-    <SignUp></SignUp>
-    </AppProvider>
+    // <AppProvider>
+    // <Login {...loginData}></Login>
+    // <SignUp></SignUp>
+    
+    // </AppProvider>
+
+<BrowserRouter>
+    <Routes>
+        <Route path="/" element={<Login></Login>}></Route>
+        <Route path="/signUp" element={<SignUp />}></Route>
+        <Route path="/dashboard" element = {<Dashboard />}></Route>
+    </Routes>
+</BrowserRouter>
+
   );
 }
 
