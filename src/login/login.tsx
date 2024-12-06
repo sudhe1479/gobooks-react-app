@@ -68,6 +68,8 @@ function Login({ name, maineMail, mobileNumber }: loginComponentProps) {
             if (password.length === 10) {
                 setError("")
                 setIsUserLogin(true)
+                sessionStorage.setItem("userLoggedIn","true")
+            
                 //logic
                 navigate('/dashboard')
             } else {

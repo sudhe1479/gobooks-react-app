@@ -8,6 +8,7 @@ import SignUp from './signup/signup';
 import {AppProvider} from './context/App.context'
 import { CounterComponent } from './counter/counter';
 import { Dashboard} from './dashboard/dashboard'
+import  {ProtectRoute} from './protectRoute'
 function App() {
   const loginData:loginComponentProps ={
     name:"test",
@@ -45,7 +46,7 @@ function App() {
     <Routes>
         <Route path="/" element={<Login></Login>}></Route>
         <Route path="/signUp" element={<SignUp />}></Route>
-        <Route path="/dashboard" element = {<Dashboard />}></Route>
+        <Route path="/dashboard" element = {<ProtectRoute><Dashboard /></ProtectRoute>}></Route>
     </Routes>
 </BrowserRouter>
 
